@@ -92,8 +92,10 @@
         gpl="git pull";
         gp="git push";
 
+        # workspae alias
         cov="cd $HOME/Projects/Cov";
         iap="cd $HOME/Projects/IAP";
+        psn="cd $HOME/Projects/Personal";
 
       };
 
