@@ -47,6 +47,7 @@
     pkgs.nodePackages.aws-cdk
     pkgs.yarn
     pkgs.gcc
+    pkgs.python3
     # pkgs.helm
   ];
 
