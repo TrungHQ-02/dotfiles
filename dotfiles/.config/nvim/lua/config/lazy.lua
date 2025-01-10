@@ -26,8 +26,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

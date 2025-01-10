@@ -22,8 +22,8 @@
     pkgs.zsh-powerlevel10k
     pkgs.zsh-autocomplete
     pkgs.zsh-autosuggestions
-    pkgs.python3
-    pkgs.docker_26
+    pkgs.bat
+    pkgs.docker
     pkgs.neofetch
     pkgs.lazygit
     pkgs.ripgrep
@@ -31,6 +31,8 @@
     pkgs.neovim
     pkgs.jq
     pkgs.tree
+    # pkgs.wezterm
+    pkgs.thefuck
     pkgs.gnumake42
 
     # Devops toolchains
@@ -42,13 +44,15 @@
     # Dev Tools
     pkgs.go-task
     pkgs.go
-    pkgs.nodejs_18
+    pkgs.golangci-lint
+    pkgs.tilt
+    pkgs.docker-compose
+    pkgs.nodejs_20
     pkgs.corepack_18
     pkgs.nodePackages.aws-cdk
     pkgs.yarn
     pkgs.gcc
     pkgs.python3
-    # pkgs.helm
   ];
 
   programs = {
@@ -66,6 +70,7 @@
         export dry="--dry-run=client -o yaml";
         export PATH=$PATH:$HOME/go/bin;
         export GOBIN=$HOME/go/bin;
+        eval $(thefuck --alias)
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,underline"
       '';
       
@@ -93,10 +98,23 @@
         gpl="git pull";
         gp="git push";
 
+        # Find and open file with nvim
+        fnvim="nvim $(fzf --height 40% --preview \"bat --color=always --style=numbers {}\")";
+
+        # nvim alias
+        v="nvim .";
+
+        # Tmux alias
+        ta="tmux attach-session -t";
+        tn="tmux new-session -t";
+        tk="tmux kill-session -t";
+        tka="tmux kill-session -a";
+        tl="tmux ls";
+
         # workspae alias
-        cov="cd $HOME/Projects/Cov";
-        iap="cd $HOME/Projects/IAP";
-        psn="cd $HOME/Projects/Personal";
+        cov="cd $HOME/Workspace/FProjects/Cov";
+        iap="cd $HOME/Workspace/FProjects/Iap";
+        psn="cd $HOME/Workspace/Personal";
 
       };
 
