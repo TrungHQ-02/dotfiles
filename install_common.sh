@@ -37,7 +37,7 @@ fi
 # Install zsh-syntax-highlighting
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
     echo "Installing zsh-syntax-highlighting..."
-    # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 else
     echo "zsh-syntax-highlighting is already installed."
 fi
@@ -46,22 +46,23 @@ echo "----------------------------"
 
 echo "I will manage dotfiles using GNU Stow."
 
-# Symbolic links for dotfiles
 # Dotfiles to manage
 dotfiles=(.zshrc .zshenv .p10k.zsh .tmux.conf .wezterm.lua)
 
-# Create symbolic links for each dotfile
+# Clean up existing files and create symbolic links
 for file in "${dotfiles[@]}"; do
     if [ -L "$HOME/$file" ]; then
-        echo "$file is already a symlink. Removing it before applying stow."
+        echo "$file is already a symlink. Removing it."
         rm -rf "$HOME/$file"
     elif [ -f "$HOME/$file" ]; then
-        echo "$file already exists. Backing up and creating symbolic link."
+        echo "$file already exists. Backing up to $file.bak."
         mv "$HOME/$file" "$HOME/$file.bak"
     else
-        echo "$file not found. Creating symbolic link."
+        echo "$file not found."
     fi
     echo "------"
 done
 
+# Apply stow for zsh, tmux, and wezterm dotfiles
+echo "Applying stow for zsh, tmux, and wezterm dotfiles..."
 stow -v -d "$(pwd)" -t ~ zsh tmux wezterm
