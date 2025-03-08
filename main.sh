@@ -1,27 +1,28 @@
 #!/bin/bash
 
+# Function to install common tools (e.g., zsh)
+install_common() {
+    echo "Installing common tools (e.g., zsh)..."
+    chmod +x ./install_common.sh
+    ./install_common.sh
+}
+
 # Function to handle macOS with Homebrew
 install_macos_brew() {
-    # Add installation commands here
     echo "macos-brew selected. Add your installation commands here."
 }
 
 # Function to handle Ubuntu
 install_ubuntu() {
-    # Add installation commands here
     echo "ubuntu selected. Add your installation commands here."
-
-    # Update package list
+    
     sudo apt update
-
-    # Install packages from the ubuntu directory
     chmod +x ./ubuntu/install_packages.sh
     ./ubuntu/install_packages.sh
 }
 
 # Function to handle WSL
 install_wsl() {
-    # Add installation commands here
     echo "wsl selected. Add your installation commands here."
 }
 
@@ -35,12 +36,15 @@ read -p "Enter your choice (macos-brew/ubuntu/wsl): " choice
 case "$choice" in
     "macos-brew")
         install_macos_brew
+        install_common
         ;;
     "ubuntu")
         install_ubuntu
+        install_common
         ;;
     "wsl")
         install_wsl
+        install_common
         ;;
     *)
         echo "Invalid choice. Please enter 'macos-brew', 'ubuntu', or 'wsl'."
