@@ -10,6 +10,13 @@ install_macos_brew() {
 install_ubuntu() {
     # Add installation commands here
     echo "ubuntu selected. Add your installation commands here."
+
+    # Update package list
+    sudo apt update
+
+    # Install packages from the ubuntu directory
+    chmod +x ./ubuntu/install_packages.sh
+    ./ubuntu/install_packages.sh
 }
 
 # Function to handle WSL
