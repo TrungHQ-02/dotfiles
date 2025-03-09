@@ -70,9 +70,9 @@ alias tka="tmux kill-session -a"
 alias tl="tmux ls"
 
 # Workspace aliases
-cov="cd $HOME/Workspace/FProjects/Cov";
-iap="cd $HOME/Workspace/FProjects/Iap";
-psn="cd $HOME/Workspace/Personal";
+alias cov="cd $HOME/Workspace/FProjects/Cov"
+alias iap="cd $HOME/Workspace/FProjects/Iap"
+alias psn="cd $HOME/Workspace/Personal"
 
 # Kubectl completion
 source <(kubectl completion zsh)
