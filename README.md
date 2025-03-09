@@ -106,4 +106,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 Thanks to all the open-source projects and contributors that make this possible.
-
